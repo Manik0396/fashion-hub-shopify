@@ -115,10 +115,38 @@
         "padding_top": 36,
         "padding_bottom": 28
       }
+    },
+    "1a9a7011-fc3c-494d-96d5-e4280efd847a": {
+      "type": "product-tabs",
+      "blocks": {
+        "4f073d27-c00d-4c4d-bbcf-72a31b47cccf": {
+          "type": "text",
+          "settings": {
+            "tabtitle": "Description",
+            "tabcontent1": "{{ product.metafields.custom.tab_content | metafield_tag }}"
+          }
+        },
+        "acaaf82e-88e3-4605-8062-41e42b416744": {
+          "type": "text",
+          "settings": {
+            "tabtitle": "How to use",
+            "tabcontent1": "{{ product.metafields.custom.how_to_use | metafield_tag }}"
+          }
+        }
+      },
+      "block_order": [
+        "4f073d27-c00d-4c4d-bbcf-72a31b47cccf",
+        "acaaf82e-88e3-4605-8062-41e42b416744"
+      ],
+      "settings": {
+        "page_handle": "classic-varsity-top",
+        "mainHeading": ""
+      }
     }
   },
   "order": [
     "main",
-    "related-products"
+    "related-products",
+    "1a9a7011-fc3c-494d-96d5-e4280efd847a"
   ]
 }
