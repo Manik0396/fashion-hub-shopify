@@ -2576,14 +2576,16 @@ product-info .loading__spinner:not(.hidden) ~ *,
 
 .header__icon,
 .header__icon--cart .icon {
-  height: 4.4rem;
-  width: 4.4rem;
+  height: 4rem;
+  width: 4rem;
   padding: 0;
 }
 
 .header__icon--cart {
   position: relative;
   margin-right: -1.2rem;
+  background: #F5F1EE;
+  border-radius: 100%;
 }
 
 .header__icon--menu[aria-expanded='true']::before {
@@ -2622,6 +2624,9 @@ menu-drawer + .header__search {
 .header__search {
   display: inline-flex;
   line-height: 0;
+  background: #EEEFF8;
+  border-radius: 100%;
+  margin-right: 10px;
 }
 
 .header--top-center > .header__search {

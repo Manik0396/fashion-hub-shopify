@@ -1,0 +1,27 @@
+.promise-section {
+    border: 1px solid #E4E4E4;
+    padding: 15px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+}
+
+.promise-section .body-text h3 {
+    margin: 0;
+    font-weight: 600;
+    color: #1D364D;
+}
+
+.body-text {
+    margin-left: 13px;
+}
+
+p.short-description {
+    margin: 0;
+    color: #726C6C;
+    font-size: 14px;
+}
+
+p.short-description a {
+    color: #726C6C;
+}

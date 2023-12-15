@@ -1,0 +1,14 @@
+{{ 'promise-section.css' | asset_url | stylesheet_tag }}
+
+<div class="promise-section">
+  <div class="body-icon"><img src="{{ block.settings.image | image_url }}" width="24" height="24" loading="lazy"></div>
+  <div class="body-text">
+    <h3>{{ block.settings.promise_title }}</h3>
+    <p class="short-description">
+      {{ block.settings.short_desc }}
+      <span
+        ><a href="{{ block.settings.detail_page_link }}">{{ block.settings.detail_page_link_text }}</a></span
+      >
+    </p>
+  </div>
+</div>

@@ -1,18 +1,133 @@
+<!-- horizontal-tabs.liquid -->
+{% if section.settings.page_handle contains product.handle or section.settings.page_handle contains collection.handle %}
+  {% comment %}
+    <div class="horizontal-tabs">
+      <ul class="tab-list">
+        {%- for block in section.blocks -%}
+          <li class="tab">{{ block.settings.tabtitle }}</li>
+        {% endfor %}
+      </ul>
+
+      {%- for block in section.blocks -%}
+        <div class="tab-content">
+          {{ block.settings.tabcontent1 }}
+        </div>
+      {% endfor %}
+    </div>
+  {% endcomment %}
+  <div class="horizontal-tabs">
+    <div class="tab-buttons">
+      {% for block in section.blocks %}
+        <button
+          class="{% if forloop.first %}active{% endif %}"
+          onclick="openTab(event, '{{ block.settings.tabtitle | handle }}')"
+        >
+          {{ block.settings.tabtitle }}
+        </button>
+      {% endfor %}
+    </div>
+
+    <div class="tab-content">
+      {% for block in section.blocks %}
+        <div id="{{ block.settings.tabtitle | handle }}" class="tab {% if forloop.first %}active{% endif %}">
+          {{ block.settings.tabcontent1 | newline_to_br }}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}
 {% schema %}
-  {
-    "name": "Product Tabs",
-    "settings": [],
-    "presets":[
-      {
-        "name":"Product Tabs"
-      }
-      
-    ]
-  }
+{
+  "name": "Horizontal Tabs",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "page_handle",
+      "label": "The product url where this content is shown"
+    },
+    {
+      "type": "text",
+      "id": "mainHeading",
+      "label": "Main heading"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "tabslabel",
+
+      "settings": [
+        {
+          "type": "text",
+          "id": "tabtitle",
+          "label": "Tab Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "tabcontent1",
+          "label": "Tab content"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Horizontal Tabs"
+    }
+  ]
+}
 {% endschema %}
 
-{% stylesheet %}
-{% endstylesheet %}
+<script>
+  function openTab(evt, tabId) {
+    const tabContents = document.querySelectorAll('.tab');
+    tabContents.forEach((tab) => {
+      tab.classList.remove('active');
+    });
 
-{% javascript %}
-{% endjavascript %}
+    const tabButtons = document.querySelectorAll('.tab-buttons button');
+    tabButtons.forEach((button) => {
+      button.classList.remove('active');
+    });
+
+    const selectedTab = document.getElementById(tabId);
+    if (selectedTab) {
+      selectedTab.classList.add('active');
+      evt.currentTarget.classList.add('active');
+    }
+  }
+</script>
+
+<style>
+  .tab-buttons {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    list-style: none;
+    border-bottom: 2px solid #eaecf0;
+  }
+
+  .horizontal-tabs {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .tab.active {
+    display: block;
+  }
+  .tab {
+    display: none;
+  }
+  .tab-buttons button {
+    background: transparent;
+    border: none;
+    padding: 10px 0;
+    margin-right: 10px;
+    font-size: 15px;
+  }
+  .tab-buttons button.active {
+    color: #164c96;
+    font-weight: 600;
+    border-bottom: 2px solid;
+  }
+</style>

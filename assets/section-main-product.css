@@ -161,11 +161,12 @@
 /* Form Elements */
 .product-form__input {
   flex: 0 0 100%;
-  padding: 0;
+  padding: 0 0 2rem 0;
   margin: 0 0 1.2rem 0;
   max-width: 44rem;
   min-width: fit-content;
   border: none;
+  border-bottom: 1px solid #E4E4E4;
 }
 
 variant-radios,
@@ -344,8 +345,11 @@ a.product__text {
   margin-bottom: 1.5rem;
 }
 
+
 .product__title > * {
   margin: 0;
+  font-size: 3rem;
+  font-weight: 600;
 }
 
 .product__title > a {
@@ -1597,4 +1601,27 @@ a.product__text {
   .recipient-form > input[type='checkbox']:checked + label .icon-checkmark {
     border: none;
   }
+}
+
+/* Custom CSS */
+.product_subtitle {
+  font-size: 1.3rem !important;
+  margin-top: -8px !important;
+}
+
+label.color-swatches {
+  height: 4.2rem;
+  border-radius: 100% !important;
+  width: 4rem !important;
+}
+
+.product-form__input.section-Size input[type=radio]+label {
+  background: #F3F3F3 !important;
+  border: none !important;
+  color: #726C6C;
+  padding: 8px 15px;
+}
+.product-form__input.section-Size input[type=radio]:checked+label {
+  background: #EDF0F8 !important;
+  color: #3A4980;
 }
