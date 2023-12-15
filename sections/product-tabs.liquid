@@ -1,20 +1,5 @@
 <!-- horizontal-tabs.liquid -->
 {% if section.settings.page_handle contains product.handle or section.settings.page_handle contains collection.handle %}
-  {% comment %}
-    <div class="horizontal-tabs">
-      <ul class="tab-list">
-        {%- for block in section.blocks -%}
-          <li class="tab">{{ block.settings.tabtitle }}</li>
-        {% endfor %}
-      </ul>
-
-      {%- for block in section.blocks -%}
-        <div class="tab-content">
-          {{ block.settings.tabcontent1 }}
-        </div>
-      {% endfor %}
-    </div>
-  {% endcomment %}
   <div class="horizontal-tabs">
     <div class="tab-buttons">
       {% for block in section.blocks %}
